@@ -118,7 +118,7 @@ const Bond = ({
 	  <br />
 	  	<h4>DRIPBOND MINIMUM BOND: 0.2 ETH</h4>
 	  <h4>CONVERSION TO: { String(blockData.dripPerMinimum) } DRIP</h4>
-	  <h4>BOND MATURITY TIME: { moment(new Date(blockData.block.timestamp + 60*60*24*14)).format('MM:DD:YY HH:ss') }</h4>
+	  <h4>BOND MATURITY TIME: { moment(new Date((blockData.block.timestamp + 60*60*24*14)*1000)).format('MM:DD:YY HH:ss') }</h4>
 	  <h4>BOND MATURITY VALUE: { String(blockData.dripAtMaturity) } DRIP</h4>
 	  <label style={ { color: 'white', marginRight: '10px' } } forHtml="amount">ETH to lock in DRIPBOND</label><input type="text" name="amount" value={ mintCost } onChange={ (evt) => { evt.preventDefault(); setMintCost(evt.target.value); } } />
 	  <br />
