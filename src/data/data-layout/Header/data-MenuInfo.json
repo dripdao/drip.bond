@@ -1,22 +1,14 @@
 [
 	{
-		"path":"#about",
-		"nameLink":"About Us"
+		"path": "#!/",
+		"nameLink": "Home"
 	},
 	{
-		"path":"#services",
-		"nameLink":"Services"
+		"path":"#!/bond",
+		"nameLink":"Bond"
 	},
 	{
-		"path":"#faq",
+		"path":"#!/faq",
 		"nameLink":"FAQ"
-	},
-	{
-		"path":"#roadmap",
-		"nameLink":"Roadmap"
-	},
-	{
-		"path":"#contact",
-		"nameLink":"Contact"
 	}
 ]

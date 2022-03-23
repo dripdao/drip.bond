@@ -23,7 +23,6 @@ import {
 import './style/HomeDemo2.scss'
 
 import Header from "../../layouts/Header"
-import FooterPages from '../../layouts/Footer/FooterPages'
 
 import SecHeroSection from '../../components/HeroSection'
 import AboutOther from '../../components/AboutOther'
@@ -51,7 +50,6 @@ const HomeDemo2Container = () => {
 
     return (
       <div>
-        <Header Title="Home Template2" />
         <SecHeroSection
             ClassSec="hero-section app section-padding"
             ClassDiv="col-12 col-lg-7 col-md-12"
@@ -102,9 +100,6 @@ const HomeDemo2Container = () => {
             ClassSpanTitle="gradient-text blue"
         />
 	*/}
-        <FooterPages
-            ClassSpanTitle="gradient-text blue"
-        />
       </div>
     );
 };

@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // basename="template_react"
 ReactDOM.render(
-	<BrowserRouter>
+	<Router hashType="hashbang">
 		<App />
-	</BrowserRouter>,
+	</Router>,
   document.getElementById('root')
 );
 
