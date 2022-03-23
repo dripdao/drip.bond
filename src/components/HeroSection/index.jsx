@@ -34,7 +34,6 @@ const SecHeroSection = ({
                 <p className="w-text fadeInUp" data-wow-delay="0.3s">dripDAO is the decentralized gateway to real-world equity. DRIP holders vote on strategic investments in short-term and high-yield debt. Lock DRIP in an NFT bond for a fixed period, and exit at maturity at maximum yield.</p>
                 <div className="dream-btn-group fadeInUp" data-wow-delay="0.4s">
                   <a href="#" className="btn more-btn mr-3">{link1}</a>
-                  <a href="#" className="btn more-btn">{link2}</a>
                 </div>
               </div>
             </div>
