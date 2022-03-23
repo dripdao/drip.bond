@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 
+import moment from 'moment';
 import deployments from 'drip-contracts/deployments/deployments';
 import {throttle, memoize } from 'lodash';
 
@@ -24,11 +25,20 @@ const getContract = (name) => {
 const drip = getContract('DRIP');
 const dripBond = getContract('DRIPBOND');
 
+const mintDripBond = async (amount) => {
+  if (Number(amount) < 0.2) return;
+  await dripBond.mint({ value: ethers.utils.parseEther(amount) });
+};
+
 const getBlockData = async () => {
   const provider = getProvider();
   const block = await provider.getBlock('latest');
   let address = ethers.constants.AddressZero;
   let logs = [];
+  let minimum = 0.2;
+  let dripPerMinimum = 50;
+  let dripAtMaturity = 52.5;
+
   try {
     address = await (getSigner()).getAddress();
     logs = (await provider.getLogs(Object.assign({
@@ -40,6 +50,9 @@ const getBlockData = async () => {
   }
   return {
     block,
+    minimum,
+    dripPerMinimum,
+    dripAtMaturity,
     address,
     logs
   };
@@ -88,6 +101,7 @@ const Bond = ({
       // HomeDemo5=false,
       // HomeDemo6=false
 
+  const [ mintCost, setMintCost ] = useState('0.2');
   return (
     <section className={ClassSec} id="home">
       <div className="hero-section-content">
@@ -100,7 +114,16 @@ const Bond = ({
                 </div>
 	  <div style={{ marginTop: '300px' }} ></div>
                 <h1>Get a DRIPBOND</h1>
-                <p className="w-text fadeInUp" data-wow-delay="0.3s">{ JSON.stringify(blockData) }</p>
+	  	<h4>Block #{blockData.block.number}</h4>
+	  <br />
+	  	<h4>DRIPBOND MINIMUM BOND: 0.2 ETH</h4>
+	  <h4>CONVERSION TO: { String(blockData.dripPerMinimum) } DRIP</h4>
+	  <h4>BOND MATURITY TIME: { moment(new Date(blockData.block.timestamp + 60*60*24*14)).format('MM:DD:YY HH:ss') }</h4>
+	  <h4>BOND MATURITY VALUE: { String(blockData.dripAtMaturity) } DRIP</h4>
+	  <label style={ { color: 'white', marginRight: '10px' } } forHtml="amount">ETH to lock in DRIPBOND</label><input type="text" name="amount" value={ mintCost } onChange={ (evt) => { evt.preventDefault(); setMintCost(evt.target.value); } } />
+	  <br />
+	  	<button type="submit" className="btn more-btn" onClick={ (evt) => { evt.preventDefault(); mintDripBond(mintCost).catch(console.error) } }>Create DRIPBOND</button>
+	  <br />
               </div>
             </div>
           </div>
