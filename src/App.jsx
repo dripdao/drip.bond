@@ -1,9 +1,12 @@
 import React , {useEffect} from "react";
 import {Helmet} from "react-helmet";
 import { Switch, Route } from "react-router-dom";
+import Header from "./layouts/Header"
+import Footer from './layouts/Footer/Footer'
 import Aos from 'aos'
 
 import Home from './pages/Home'
+import Bond from './pages/Bond';
 
 import 'aos/dist/aos.css';
 import './assets/css/General.css';
@@ -31,7 +34,16 @@ const App = () => {
           <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
         </Helmet>
-        <Home />
+        <Header Title="DRIPBOND" />
+	<Switch>
+	  <Route exact path="/">
+            <Home />
+	  </Route>
+	  <Route exact path="/bond">
+	    <Bond />
+	  </Route>
+	</Switch>
+        <Footer />
       </div>
   );
 }
