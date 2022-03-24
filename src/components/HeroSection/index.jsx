@@ -31,7 +31,7 @@ const SecHeroSection = ({
                   <h3 className="special-head dark">{specialHead}</h3>
                 </div>
                 <h1>{title}</h1>
-                <p className="w-text fadeInUp" data-wow-delay="0.3s">dripDAO is the decentralized gateway to real-world equity. DRIP holders vote on strategic investments in short-term and high-yield debt. Lock DRIP in an NFT bond for a fixed period, and exit at maturity at maximum yield.</p>
+                <p className="w-text fadeInUp" data-wow-delay="0.3s">dripDAO is the decentralized guardian of the DRIP reserve asset, automating decision making to automate capital. DRIP holders maintain interest rates and target DRIP trade value to provide the DRIPBOND NFT, a non-fungible asset designed to yield its DRIP upside at a guaranteed rate.</p><p>Funds put in a DRIPBOND are guaranteed the DRPY (DRIP per year) set by DRIP voters at the time of bond creation, so DRIPBOND holders never have to worry.</p>
                 <div className="dream-btn-group fadeInUp" data-wow-delay="0.4s">
                   <a href="#" className="btn more-btn mr-3">{link1}</a>
                 </div>
