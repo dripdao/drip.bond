@@ -14,7 +14,7 @@ function Module(){
 
 const Wrapper = styled.div`
     max-width: 500px;
-    width: 95vw;
+    width: 90vw;
 `;
 
 export default Module;

@@ -12,8 +12,6 @@ function Home() {
       return () => clearTimeout(timer);
   }, [isLoading]);
 
-  console.log(isLoading)
-
   return (
     <FullScreenCenter>
       <Head>
