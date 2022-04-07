@@ -1,12 +1,23 @@
 import styled from 'styled-components';
-import { rotate, pulse, loaderPulse } from '../../styles/animations';
+import { rotate, pulse, loaderPulse } from '../../styles/animations.styled';
+import { FullScreenCenter } from '../../styles/layout.styled';
 
-function Loader(){
-    return (
-        <Wrapper>
-            <DashedBorder />
-        </Wrapper>
-    )
+function Loader({ fullScreen }){
+    if(fullScreen) {
+        return (
+            <FullScreenCenter>
+                <Wrapper>
+                    <DashedBorder />
+                </Wrapper>
+            </FullScreenCenter>
+        )
+    } else {
+        return (
+            <Wrapper>
+                <DashedBorder />
+            </Wrapper>
+        )
+    }
 }
 
 const DashedBorder = styled.div`

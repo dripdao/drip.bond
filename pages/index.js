@@ -1,8 +1,16 @@
-import Head from 'next/head'
-import Loader from '../components/loader'
-import { ColumnCenter, FullScreenCenter } from '../styles/layout.styled'
-import { useState, useEffect } from 'react';
+// General
+import Head from 'next/head';
+import Image from 'next/image';
+import styled from 'styled-components';
+import { useState, useEffect, useContext } from 'react';
+// Components
+import Loader from '../components/loader';
 import Module from '../components/module';
+// Styling
+import { ColumnCenter } from '../styles/layout.styled';
+import { MarginAround } from '../styles/spacing.styled';
+import { useAccountContext } from '../store/account';
+import WalletConnect from '../components/wallet-connect';
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +21,7 @@ function Home() {
   }, [isLoading]);
 
   return (
-    <FullScreenCenter>
+    <>
       <Head>
         <title>dripDAO</title>
         <meta name="description" content="DripDAO ..." />
@@ -25,20 +33,53 @@ function Home() {
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </Head>
 
-      <main>
-        {isLoading ? (<Loader />) : (
-          <ColumnCenter>
-            <h1>DripDao</h1>
-            <Module />
-          </ColumnCenter>
-        )}
-      </main>
+      {isLoading ? (<Loader fullScreen />) : (
+        <>
+          <Main>
+            <ColumnCenter alignCenter id="Asdf">
+              <MarginAround lg>
+                <Image
+                  src="/logo/logo-w-text.png"
+                  alt="dripDAO Logo"
+                  width="100px" 
+                  height="100px"
+                />
+              </MarginAround>
+              <Module />
+            </ColumnCenter>
 
-      <footer>
+            <WalletWrapper>
+              <WalletConnect />
+            </WalletWrapper>
+          </Main>
 
-      </footer>
-    </FullScreenCenter>
+          <Footer>
+            <span>dripDAO &copy; 2022</span>
+          </Footer>
+        </>
+      )}
+    </>
   )
 }
+
+const Main = styled.main``;
+
+const Footer = styled.footer`
+  position: absolute;
+  width: 100%;
+  bottom: 1rem;
+  left: 0;
+  margin: 0 auto;
+  text-align: center;
+`;
+
+const WalletWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  bottom: 5rem;
+  left: 0;
+  margin: 0 auto;
+  text-align: center;
+`;
 
 export default Home;
