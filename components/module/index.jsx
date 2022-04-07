@@ -51,7 +51,7 @@ function Module(){
                     <Card 
                         inset 
                         style={{
-                            maxHeight: "200px", 
+                            maxHeight: "20vh", 
                             overflowY: "scroll"
                         }}
                     >
