@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { useAccountContext } from "../../store/account";
-import { MarginAround } from "../../styles/spacing.styled";
+import { MarginAround, MarginTop } from "../../styles/layout.styled";
 import Stat from "../stat";
+import Table from "../table";
 import Button from "./button";
 import Card from "./card";
 import Input from "./input";
@@ -31,7 +32,7 @@ function Module(){
                     <Stat text="renCRV APY" value="12" />
                 </StatContainer>
 
-                <MarginAround>
+                <MarginTop>
                     <p>Deposit BTC</p>
                     <Input 
                         value={inputVal}
@@ -43,7 +44,20 @@ function Module(){
                         onClick={handleSubmit} 
                         disabled={shouldDisable() || !web3Provider}
                     />
-                </MarginAround>
+                </MarginTop>
+
+                <div>
+                    <p>Active DRIP</p>
+                    <Card 
+                        inset 
+                        style={{
+                            maxHeight: "200px", 
+                            overflowY: "scroll"
+                        }}
+                    >
+                        <Table />
+                    </Card>
+                </div>
             </Card>
         </Wrapper>
     )

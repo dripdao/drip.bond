@@ -1,54 +1,23 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useAccountContext } from '../../store/account';
-import Web3Modal from 'web3modal'
-import { providers } from 'ethers'
-import { providerOptions } from './config';
 import styled from 'styled-components';
+import useConnection from './connection';
+import { truncateBetween } from '../../utils/helper';
+import { ColumnCenter, MarginAround, MarginTop } from '../../styles/layout.styled';
 
 function WalletConnect() {
     const { 
         setAddress, 
-        setProvider, 
-        setChainId, 
-        setWeb3Provider,
         provider,
         web3Provider,
-        address 
+        address
     } = useAccountContext();
 
-    let web3Modal
-    if (typeof window !== 'undefined') {
-        web3Modal = new Web3Modal({
-            network: 'mainnet', // optional
-            cacheProvider: true,
-            providerOptions, // required
-        })
-    }
-
-    const connect = useCallback(async function () {
-        const provider = await web3Modal.connect();
-        const web3Provider = new providers.Web3Provider(provider);
-        const signer = web3Provider.getSigner();
-        const address = await signer.getAddress();
-        const network = await web3Provider.getNetwork();
-    
-        setProvider(provider);
-        setWeb3Provider(web3Provider);
-        setAddress(address);
-        setChainId(network.chainId);
-    }, [])
-    
-    const disconnect = useCallback(async function () {
-        await web3Modal.clearCachedProvider()
-        if (provider?.disconnect && typeof provider.disconnect === 'function') {
-            await provider.disconnect();
-        }
-
-        setProvider(null);
-        setWeb3Provider(null);
-        setAddress(null);
-        setChainId(null);
-    }, [provider]);
+    const {
+        connect,
+        disconnect,
+        web3Modal
+    } = useConnection();
     
     // Auto connect to the cached provider
     useEffect(() => {
@@ -94,20 +63,33 @@ function WalletConnect() {
     return (
         <>
             {web3Provider ? (
-                <ConnectionButton type="button" onClick={disconnect}>
-                    Disconnect
-                </ConnectionButton>
+                <ColumnCenter>
+                    {truncateBetween(address)}
+                    <MarginTop>
+                        <ConnectionButton type="button" onClick={disconnect}>
+                            Disconnect
+                        </ConnectionButton>
+                    </MarginTop>
+                </ColumnCenter>
             ) : (
-                <ConnectionButton type="button" onClick={connect}>
-                    Connect Wallet
-                </ConnectionButton>
+                <MarginTop>
+                    <ConnectionButton type="button" onClick={connect}>
+                        Connect Wallet
+                    </ConnectionButton>
+                </MarginTop>
             )}
         </>
     )
 }
 
 const ConnectionButton = styled.button`
+    font-size: 16px;
+    padding: 0.25rem 1rem;
     cursor: pointer;
+    transition: 0.2s ease;
+    &:hover {
+        color: #8a0600;
+    }
 `;
 
 export default WalletConnect;

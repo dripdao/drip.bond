@@ -7,9 +7,7 @@ import { useState, useEffect, useContext } from 'react';
 import Loader from '../components/loader';
 import Module from '../components/module';
 // Styling
-import { ColumnCenter } from '../styles/layout.styled';
-import { MarginAround } from '../styles/spacing.styled';
-import { useAccountContext } from '../store/account';
+import { ColumnCenter, MarginAround } from '../styles/layout.styled';
 import WalletConnect from '../components/wallet-connect';
 
 function Home() {
@@ -36,8 +34,8 @@ function Home() {
       {isLoading ? (<Loader fullScreen />) : (
         <>
           <Main>
-            <ColumnCenter alignCenter id="Asdf">
-              <MarginAround lg>
+            <ColumnCenter alignCenter>
+              <MarginAround>
                 <Image
                   src="/logo/logo-w-text.png"
                   alt="dripDAO Logo"
@@ -76,7 +74,7 @@ const Footer = styled.footer`
 const WalletWrapper = styled.div`
   position: absolute;
   width: 100%;
-  bottom: 5rem;
+  bottom: 4rem;
   left: 0;
   margin: 0 auto;
   text-align: center;
