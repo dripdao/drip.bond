@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { useNavContext } from "../../store/navigation";
 import Stat from "../stat";
 import Card from "./card";
-import Deposit from "./deposit";
-import PieChart from "./pie-chart";
 import Tabs from "../tabs";
+import ChartView from "./chart";
+import DepositView from "./deposit";
 
 function Module(){
     const { current } = useNavContext();
@@ -18,9 +18,9 @@ function Module(){
                 </StatContainer>
 
                 {current === "Deposit" ? (
-                    <Deposit />
+                    <DepositView />
                 ) : (
-                    <PieChart />
+                    <ChartView />
                 )}
 
                 <Tabs />

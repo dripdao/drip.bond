@@ -60,7 +60,9 @@ function Home() {
   )
 }
 
-const Main = styled.main``;
+const Main = styled.main`
+  min-height: 800px;
+`;
 
 const Footer = styled.footer`
   position: absolute;
@@ -69,6 +71,9 @@ const Footer = styled.footer`
   left: 0;
   margin: 0 auto;
   text-align: center;
+  @media screen and (max-height: 860px) {
+    display: none;
+  }
 `;
 
 const WalletWrapper = styled.div`
@@ -78,15 +83,17 @@ const WalletWrapper = styled.div`
   left: 0;
   margin: 0 auto;
   text-align: center;
+  @media screen and (max-height: 860px) {
+    position: relative;
+    top: 1rem;
+    padding-bottom: 1rem;
+  }
 `;
 
 const ResponsiveSpacing = styled.div`
   margin: 1rem;
   @media screen and (min-width: 600px){
     margin: 2rem;
-  }
-  @media screen and (min-width: 1200px){
-    margin: 3rem;
   }
 `;
 

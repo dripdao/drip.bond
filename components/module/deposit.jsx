@@ -7,7 +7,7 @@ import { useAccountContext } from "../../store/account";
 import Card from "./card";
 import Table from "../table";
 
-function Deposit() {
+function DepositView() {
     const { web3Provider } = useAccountContext();
     const [inputVal, setInputVal] = useState(0);
 
@@ -80,4 +80,4 @@ function Deposit() {
     )
 }
 
-export default Deposit;
+export default DepositView;

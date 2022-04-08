@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-function Button({ onClick, disabled, text }){
+function CtaButton({ onClick, disabled, text }){
     return (
         <StyledButton 
             onClick={onClick}
@@ -56,4 +56,4 @@ const StyledButton = styled.button`
     }
 `;
 
-export default Button;
+export default CtaButton;
