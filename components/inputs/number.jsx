@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components"
 
-function Input({ value, onChange, disabled }){
+function NumberInput({ value, onChange, disabled }){
     const [isInvalid, setIsInvalid] = useState(true);
 
     useEffect(() => {
@@ -44,4 +44,4 @@ const StyledInput = styled.input`
     color: ${({isInvalid}) => isInvalid ? "darkgray" : "black"};
 `;
 
-export default Input;
+export default NumberInput;

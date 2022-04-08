@@ -1,28 +1,13 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { useAccountContext } from "../../store/account";
-import { MarginAround, MarginTop } from "../../styles/layout.styled";
+import { useNavContext } from "../../store/navigation";
 import Stat from "../stat";
-import Table from "../table";
-import Button from "./button";
 import Card from "./card";
-import Input from "./input";
+import Deposit from "./deposit";
+import PieChart from "./pie-chart";
+import Tabs from "../tabs";
 
 function Module(){
-    const [inputVal, setInputVal] = useState(0);
-    const { web3Provider } = useAccountContext();
-
-    const handleSubmit = () => {
-        console.log("Submit");
-    }
-
-    const shouldDisable = () => {
-        if(!inputVal || inputVal <= 0){
-            return true;
-        } else {
-            return false
-        }
-    }
+    const { current } = useNavContext();
 
     return (
         <Wrapper>
@@ -32,32 +17,13 @@ function Module(){
                     <Stat text="renCRV APY" value="12" />
                 </StatContainer>
 
-                <MarginTop>
-                    <p>Deposit BTC</p>
-                    <Input 
-                        value={inputVal}
-                        onChange={setInputVal}
-                        disabled={!web3Provider}
-                    />
-                    <Button 
-                        text="Enter DRIP" 
-                        onClick={handleSubmit} 
-                        disabled={shouldDisable() || !web3Provider}
-                    />
-                </MarginTop>
+                {current === "Deposit" ? (
+                    <Deposit />
+                ) : (
+                    <PieChart />
+                )}
 
-                <div>
-                    <p>Active DRIPBONDs</p>
-                    <Card 
-                        inset 
-                        style={{
-                            maxHeight: "20vh", 
-                            overflowY: "scroll"
-                        }}
-                    >
-                        <Table />
-                    </Card>
-                </div>
+                <Tabs />
             </Card>
         </Wrapper>
     )

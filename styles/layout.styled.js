@@ -27,6 +27,17 @@ export const SpaceBetween = styled.div`
     flex-direction: ${({row}) => row ? "row" : "column"}
 `;
 
+export const SpaceAround = styled.div`
+    display: flex;
+    justify-content: space-around;
+    flex-direction: ${({row}) => row ? "row" : "column"}
+`;
+
+export const GridSplit = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;  
+`;
+
 // Spacing
 export const MarginAround = styled.div`
     margin: ${(props) => props.xl ? "3rem" : 

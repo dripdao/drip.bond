@@ -35,14 +35,14 @@ function Home() {
         <>
           <Main>
             <ColumnCenter alignCenter>
-              <MarginAround>
+              <ResponsiveSpacing>
                 <Image
                   src="/logo/logo-w-text.png"
                   alt="dripDAO Logo"
                   width="100px" 
                   height="100px"
                 />
-              </MarginAround>
+              </ResponsiveSpacing>
               <Module />
             </ColumnCenter>
 
@@ -78,6 +78,16 @@ const WalletWrapper = styled.div`
   left: 0;
   margin: 0 auto;
   text-align: center;
+`;
+
+const ResponsiveSpacing = styled.div`
+  margin: 1rem;
+  @media screen and (min-width: 600px){
+    margin: 2rem;
+  }
+  @media screen and (min-width: 1200px){
+    margin: 3rem;
+  }
 `;
 
 export default Home;

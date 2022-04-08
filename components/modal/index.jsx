@@ -40,9 +40,6 @@ function BondModal({children, bond}) {
 }
 
 const ModalWrapper = styled.div`
-    .react-responsive-modal-modal {
-        border-radius: 10px;
-    }
 `;
 
 const Clickable = styled.div`

@@ -2,34 +2,11 @@ import styled from "styled-components";
 import { SpaceBetween } from "../../styles/layout.styled";
 import Modal from "../modal";
 
-function Table() {
-    const mock = [
-        {
-            name: "Bond #1",
-            maturity: "POSTDRIP"
-        },
-        {
-            name: "Bond #2",
-            maturity: "08-21-22"
-        },
-        {
-            name: "Bond #3",
-            maturity: "09-03-23"
-        },
-        {
-            name: "Bond #4",
-            maturity: "05-14-24"
-        },
-        {
-            name: "Bond #5",
-            maturity: "12-30-23"
-        }
-    ];
-
+function Table({ data = [] }) {
     return (
         <>
-            {mock.map((el, i) => (
-                <BorderedItem row i={i}>
+            {data.map((el, i) => (
+                <BorderedItem row i={i} key={i}>
                     <div>
                         <Modal bond={el}>
                             {el.name}
@@ -51,7 +28,7 @@ function Table() {
 }
 
 const BorderedItem = styled(SpaceBetween)`
-    padding: 1rem 0.5rem;
+    padding: ${({ i }) => i !== 0 ? "1rem 0.5rem" : "0.5rem 0.5rem 1rem 0.5rem"};
     border-top: ${({ i }) => i !== 0 ? `2px solid white` : 'none'}
 `;
 
