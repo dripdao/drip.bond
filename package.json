@@ -14,6 +14,7 @@
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-responsive-modal": "^6.2.0",
     "styled-components": "^5.3.5",
     "walletlink": "^2.5.0",
     "web3modal": "^1.9.6"

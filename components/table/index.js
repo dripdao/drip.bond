@@ -1,32 +1,66 @@
 import styled from "styled-components";
 import { SpaceBetween } from "../../styles/layout.styled";
+import Modal from "../modal";
 
 function Table() {
     const mock = [
-        "Dripbond #1",
-        "Dripbond #2",
-        "Dripbond #3",
-        "Dripbond #4",
-        "Dripbond #5",
-        "Dripbond #6",
-        "Dripbond #7",
-        "Dripbond #8",
-        "Dripbond #9"
-    ]
+        {
+            name: "Bond #1",
+            maturity: "POSTDRIP"
+        },
+        {
+            name: "Bond #2",
+            maturity: "08-21-22"
+        },
+        {
+            name: "Bond #3",
+            maturity: "09-03-23"
+        },
+        {
+            name: "Bond #4",
+            maturity: "05-14-24"
+        },
+        {
+            name: "Bond #5",
+            maturity: "12-30-23"
+        }
+    ];
+
     return (
         <>
-            {mock.map((el) => (
-                <SpaceBetween row style={{padding: "0 0.5rem"}}>
+            {mock.map((el, i) => (
+                <BorderedItem row i={i}>
                     <div>
-                        {el}
+                        <Modal bond={el}>
+                            {el.name}
+                        </Modal>
                     </div>
                     <div>
-                        Active
+                        {el.maturity.toLowerCase() === "postdrip" ? (
+                            <Modal bond={el}>
+                                <StyledText href="#">{el.maturity}</StyledText>
+                            </Modal>
+                        ) : (
+                            <span>{el.maturity}</span>
+                        )}
                     </div>
-                </SpaceBetween>
+                </BorderedItem>
             ))}
         </>
     )
 }
+
+const BorderedItem = styled(SpaceBetween)`
+    padding: 1rem 0.5rem;
+    border-top: ${({ i }) => i !== 0 ? `2px solid white` : 'none'}
+`;
+
+const StyledText = styled.span`
+    color: #ffabfc;
+    transition: 1s;
+    &:hover {
+        text-decoration: underline #40e4ca;
+    }
+`;
 
 export default Table;

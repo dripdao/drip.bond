@@ -47,7 +47,7 @@ function Module(){
                 </MarginTop>
 
                 <div>
-                    <p>Active DRIP</p>
+                    <p>Active DRIPBONDs</p>
                     <Card 
                         inset 
                         style={{
