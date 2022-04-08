@@ -71,7 +71,7 @@ const Footer = styled.footer`
   left: 0;
   margin: 0 auto;
   text-align: center;
-  @media screen and (max-height: 900px) {
+  @media screen and (max-height: 890px) {
     display: none;
   }
 `;
@@ -83,7 +83,7 @@ const WalletWrapper = styled.div`
   left: 0;
   margin: 0 auto;
   text-align: center;
-  @media screen and (max-height: 900px) {
+  @media screen and (max-height: 890px) {
     position: relative;
     top: 1rem;
     padding-bottom: 1rem;
