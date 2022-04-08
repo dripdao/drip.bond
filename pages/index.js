@@ -71,7 +71,7 @@ const Footer = styled.footer`
   left: 0;
   margin: 0 auto;
   text-align: center;
-  @media screen and (max-height: 860px) {
+  @media screen and (max-height: 900px) {
     display: none;
   }
 `;
@@ -83,7 +83,7 @@ const WalletWrapper = styled.div`
   left: 0;
   margin: 0 auto;
   text-align: center;
-  @media screen and (max-height: 860px) {
+  @media screen and (max-height: 900px) {
     position: relative;
     top: 1rem;
     padding-bottom: 1rem;
@@ -92,8 +92,11 @@ const WalletWrapper = styled.div`
 
 const ResponsiveSpacing = styled.div`
   margin: 1rem;
-  @media screen and (min-width: 600px){
+  @media screen and (min-height: 1000px){
     margin: 2rem;
+  }
+  @media screen and (min-height: 1100px){
+    margin: 3rem;
   }
 `;
 
