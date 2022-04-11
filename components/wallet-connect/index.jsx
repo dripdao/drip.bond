@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useAccountContext } from '../../store/account';
 import styled from 'styled-components';
-import useConnection from './connection';
-import { truncateBetween } from '../../utils/helper';
+import useConnection from '../../hooks/wallet';
+import { truncateBetween } from '../../utils/helpers';
 import { ColumnCenter, MarginAround, MarginTop } from '../../styles/layout.styled';
 
 function WalletConnect() {

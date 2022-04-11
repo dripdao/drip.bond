@@ -6,14 +6,14 @@ import { usePricesContext } from "../../store/prices";
 import DepositView from "./deposit";
 import ChartView from "./chart";
 // Subcomponents
-import Card from "../subcomponents/cards";
+import Card from "../subcomponents/card";
 import Tabs from "../subcomponents/tabs";
 import Stat from "../subcomponents/stat";
 
 function Module(){
     const { current } = useNavContext();
     const { prices } = usePricesContext();
-
+    console.log(prices)
     return (
         <Wrapper>
             <Card>

@@ -1,8 +1,8 @@
 import { useCallback } from "react";
-import { useAccountContext } from "../../store/account"
+import { useAccountContext } from "../store/account"
 import Web3Modal from 'web3modal'
 import { providers } from 'ethers'
-import { providerOptions } from './config';
+import { providerOptions } from '../components/wallet-connect/config';
 
 function useConnection(){
     const { 

@@ -5,7 +5,7 @@ import { HalfTopPaddingText } from "../../styles/typography.styled";
 // Store
 import { useAccountContext } from "../../store/account";
 // Subcomponents
-import Card from "../subcomponents/cards";
+import Card from "../subcomponents/card";
 import Table from "../subcomponents/table";
 import NumberInput from "../subcomponents/inputs/number";
 import CtaButton from "../subcomponents/buttons/cta";

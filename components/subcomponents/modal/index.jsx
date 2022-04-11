@@ -1,9 +1,14 @@
 import { useState } from 'react'
 import { Modal } from 'react-responsive-modal'
 import styled from 'styled-components';
+import { SpaceBetween } from '../../../styles/layout.styled';
+import CtaButton from '../buttons/cta';
+import Dropdown from '../dropdown';
 
-function BondModal({children, bond}) {
+function BondModal({children, bond }) {
     const [isOpen, setIsOpen] = useState(false);
+
+    const [burnVal, setBurnVal] = useState("BTC"); // TODO: Find more appropriate place to store this
 
     const onOpenModal = () => setIsOpen(true);
     const onCloseModal = () => setIsOpen(false);
@@ -28,6 +33,16 @@ function BondModal({children, bond}) {
                 {bond?.maturity === "POSTDRIP" ? (
                     <Content>
                         Ready to burn
+                        <SpaceBetween row>
+                            <Dropdown 
+                                value={burnVal} 
+                                setValue={setBurnVal} 
+                            />
+                            <CtaButton 
+                                text="burn" 
+                                sm 
+                            />
+                        </SpaceBetween>
                     </Content>
                 ) : (
                     <Content>
@@ -51,7 +66,7 @@ const Content = styled.div`
 `;
 
 const ModalHeader = styled.span`
-    font-size: 20px;
+    font-size: 24px;
 `;
 
 export default BondModal;

@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-function CtaButton({ onClick, disabled, text }){
+function CtaButton({ onClick, disabled, text, sm }){
     return (
         <StyledButton 
             onClick={onClick}
             disabled={disabled}
+            sm={sm}
         >
             {text || 'Submit'}
         </StyledButton>
@@ -14,7 +15,6 @@ function CtaButton({ onClick, disabled, text }){
 const StyledButton = styled.button`
     margin: 1rem 0;
     width: 100%;
-    max-width: 300px;
     font-size: 20px;
     padding: 0.75rem;
     border: none;
@@ -38,6 +38,15 @@ const StyledButton = styled.button`
        1px -1px 0 #000,
        -1px 1px 0 #000,
         1px 1px 0 #000;
+
+    ${({ sm }) => sm ? `
+        max-width: 200px;
+        margin: 0.5rem 0;
+        height: fit-content;
+    ` : `
+        max-width: 300px;
+        margin: 1rem 0;
+    `}
 
     &:hover {
         ${({disabled}) => !disabled ? `
