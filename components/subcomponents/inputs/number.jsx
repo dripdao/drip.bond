@@ -15,12 +15,13 @@ function NumberInput({ value, onChange, disabled }){
     return (
         <Wrapper>
             <StyledInput 
-                placeholder={0}
+                placeholder={"0.00"}
                 type="number"
                 value={value} 
                 onChange={(e) => onChange(e.target.value)} 
                 disabled={disabled}
                 isInvalid={isInvalid}
+                min={0}
             />
         </Wrapper>
     )

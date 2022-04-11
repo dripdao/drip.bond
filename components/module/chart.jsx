@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { ColumnCenter } from "../../styles/layout.styled";
-import PieChart from "../charts/pie";
-import Stat from "../stat";
+import PieChart from "../subcomponents/charts/pie";
+import Stat from "../subcomponents/stat";
 
 function ChartView(){
     return (

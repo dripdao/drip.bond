@@ -2,12 +2,12 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 // Components
-import Loader from '../components/loader';
+import Loader from '../components/subcomponents/loader';
 import Module from '../components/module';
 // Styling
-import { ColumnCenter, MarginAround } from '../styles/layout.styled';
+import { ColumnCenter } from '../styles/layout.styled';
 import WalletConnect from '../components/wallet-connect';
 
 function Home() {

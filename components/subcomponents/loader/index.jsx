@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { rotate, pulse, loaderPulse } from '../../styles/animations.styled';
-import { FullScreenCenter } from '../../styles/layout.styled';
+import { rotate, loaderPulse } from '../../../styles/animations.styled';
+import { FullScreenCenter } from '../../../styles/layout.styled';
 
 function Loader({ fullScreen }){
     if(fullScreen) {

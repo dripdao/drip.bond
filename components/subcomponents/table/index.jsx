@@ -1,27 +1,25 @@
 import styled from "styled-components";
-import { SpaceBetween } from "../../styles/layout.styled";
+import { SpaceBetween } from "../../../styles/layout.styled";
 import Modal from "../modal";
 
 function Table({ data = [] }) {
     return (
         <>
             {data.map((el, i) => (
-                <BorderedItem row i={i} key={i}>
-                    <div>
-                        <Modal bond={el}>
+                <Modal bond={el} key={i}>
+                    <BorderedItem row i={i}>
+                        <div>
                             {el.name}
-                        </Modal>
-                    </div>
-                    <div>
-                        {el.maturity.toLowerCase() === "postdrip" ? (
-                            <Modal bond={el}>
+                        </div>
+                        <div>
+                            {el.maturity.toLowerCase() === "postdrip" ? (
                                 <StyledText href="#">{el.maturity}</StyledText>
-                            </Modal>
-                        ) : (
-                            <span>{el.maturity}</span>
-                        )}
-                    </div>
-                </BorderedItem>
+                            ) : (
+                                <span>{el.maturity}</span>
+                            )}
+                        </div>
+                    </BorderedItem>
+                </Modal>
             ))}
         </>
     )

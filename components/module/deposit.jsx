@@ -1,15 +1,18 @@
 import { useState } from "react";
+// Layout and Typography
 import { MarginTop } from "../../styles/layout.styled";
 import { HalfTopPaddingText } from "../../styles/typography.styled";
-import CtaButton from "../buttons/cta";
-import NumberInput from "../inputs/number";
+// Store
 import { useAccountContext } from "../../store/account";
-import Card from "./card";
-import Table from "../table";
+// Subcomponents
+import Card from "../subcomponents/cards";
+import Table from "../subcomponents/table";
+import NumberInput from "../subcomponents/inputs/number";
+import CtaButton from "../subcomponents/buttons/cta";
 
 function DepositView() {
     const { web3Provider } = useAccountContext();
-    const [inputVal, setInputVal] = useState(0);
+    const [inputVal, setInputVal] = useState("");
 
     const handleSubmit = () => {
         console.log("Submit");

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { useNavContext } from "../../store/navigation";
-import { GridSplit, SpaceAround } from "../../styles/layout.styled";
+import { useNavContext } from "../../../store/navigation";
+import { GridSplit } from "../../../styles/layout.styled";
 
 function Tabs({ items = ["Deposit", "Chart"] }) {
     const { current, setCurrent } = useNavContext();
@@ -23,6 +23,7 @@ function Tabs({ items = ["Deposit", "Chart"] }) {
 
 const TabWrapper = styled.div`
     color: ${({current, item}) => current === item ? "#ffdc64" : "inherit"};
+    cursor: pointer;
 `;
 
 export default Tabs;

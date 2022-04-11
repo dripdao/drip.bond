@@ -1,19 +1,24 @@
 import styled from "styled-components";
+// Store
 import { useNavContext } from "../../store/navigation";
-import Stat from "../stat";
-import Card from "./card";
-import Tabs from "../tabs";
-import ChartView from "./chart";
+import { usePricesContext } from "../../store/prices";
+// View
 import DepositView from "./deposit";
+import ChartView from "./chart";
+// Subcomponents
+import Card from "../subcomponents/cards";
+import Tabs from "../subcomponents/tabs";
+import Stat from "../subcomponents/stat";
 
 function Module(){
     const { current } = useNavContext();
+    const { prices } = usePricesContext();
 
     return (
         <Wrapper>
             <Card>
                 <StatContainer>
-                    <Stat text="renBTC/ETH" value="12.94" />
+                    <Stat text="renBTC/ETH" value={prices.renBtcEth || 0} />
                     <Stat text="renCRV APY" value="12" />
                 </StatContainer>
 
